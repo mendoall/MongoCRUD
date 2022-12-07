@@ -1,0 +1,54 @@
+﻿@{
+    ViewData["Title"] = "MongoBackEnd";
+}
+
+<div>
+    <br />
+    <br />
+    <br />
+    <h2 class="text-center">Base de datos MongoDB</h2>
+    <br />
+    <br />
+    <div class="row-cols-12">
+        <input type="button"
+               value="+ Agregar"
+               class="btn btn-success"
+               onclick="location.href='@Url.Action("AddUser", "Home")'" />
+    </div>
+    <br />
+    <table class="table table-striped">
+        <tbody>
+            <tr style="text-align:center">
+                <td><b>ID</b></td>
+                <td><b>Name</b></td>
+                <td><b>Email</b></td>
+                <td><b>Phone</b></td>
+                <td><b>Address</b></td>
+                <td><b>Date In</b></td>
+            </tr>
+            @foreach (var item in ViewBag.UserList)
+                {
+                    <tr>
+                        <td>@item._id</td>
+                        <td>@item.name</td>
+                        <td>@item.email</td>
+                        <td>@item.phone</td>
+                        <td>@item.address</td>
+                        <td>@item.dateIn</td>
+                        <td>
+                            <input type="button"
+                               value="Edit"
+                               class="btn btn-secondary"
+                               onclick="location.href='@Url.Action("LoadEdit", "Home", new { id = item._id})'" />
+                        </td>
+                        <td>
+                            <input type="button"
+                               value="Delete"
+                               class="btn btn-secondary"
+                               onclick="location.href='@Url.Action("Delete", "Home", new { id = item._id})'" />
+                        </td>
+                    </tr>
+                }
+        </tbody>
+    </table>
+</div>

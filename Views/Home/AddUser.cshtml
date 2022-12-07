@@ -1,0 +1,33 @@
+﻿@model User
+@{
+    ViewData["Title"] = "Agregar";
+}
+
+@using (Html.BeginForm("Save", "Home", FormMethod.Post))
+{
+    <h4 class="align-content-center">Inserte sus datos</h4>
+    <br />
+    @Html.HiddenFor(m => m.idStr)
+    @Html.HiddenFor(m => m.dateIn)
+    
+    <div class="row">
+        <label style="float: left;">Name</label>
+        @Html.TextBoxFor(m => m.name, null, new { @class = "form-control col-md-6", placeholder="Name", style="float: right;"})
+    </div>
+    <div class="row">
+        <label style="float: left;">Email</label>
+        @Html.TextBoxFor(m => m.email,  null, new { @class = "form-control", placeholder="Email", style="float: right;"})
+    </div>
+    <div class="row">
+        <label style="float: left;">Address</label>
+        @Html.TextBoxFor(m => m.address,  null, new { @class = "form-control col-md-6", placeholder="Phone", style="float: right;"})
+    </div>
+    <div class="row">
+        <label style="float: left;">Phone</label>
+        @Html.TextBoxFor(m => m.phone,  null, new { @class = "form-control col-md-6", placeholder="Address", style="float: right;"})
+    </div>
+    <br />
+    <div class="row">        
+        <input type="submit" class="btn btn-success" value="Accept" />
+    </div>
+}
