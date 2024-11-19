@@ -51,7 +51,7 @@ namespace MongoBackEnd.DataBaseHelper
 
         private static IMongoDatabase initDB()
         {
-            MongoClient mongoClient = new MongoClient("mongodb+srv://root:admin$1234@cluster0.o82me1l.mongodb.net/?retryWrites=true&w=majority");
+            MongoClient mongoClient = new MongoClient("mongodb://localhost:27017");
 
             IMongoDatabase db = mongoClient.GetDatabase("mongoBackEnd");
             return db;
